@@ -1,49 +1,52 @@
 <?php
-    if(isset($_POST['submit'])){
-        // print_r($_POST['nome']);
-        // print_r($_POST['motherName']);
-        // print_r($_POST['cel']);
-        // print_r($_POST['bornDate']);
+if (isset($_POST['submit'])) {
+    include_once('config.php');
 
-        include_once('config.php');
+    $nome = trim($_POST['nome']);
+    $bornDate = trim($_POST['bornDate']);
+    $motherName = trim($_POST['motherName']);
+    $telFixo = trim($_POST['telFixo']);
+    $cel = trim($_POST['cel']);
+    $endereco = trim($_POST['endereco']);
+    $email = trim($_POST['email']);
+    $CPF = trim($_POST['CadastroPessoaFisica']);
+    $login = trim($_POST['login']);
+    $senha = password_hash(trim($_POST['senha']), PASSWORD_DEFAULT);
+    $gender = trim($_POST['gender']);
 
-        $nome = $_POST['nome'];
-        $bornDate = $_POST['bornDate'];
-        $motherName = $_POST['motherName'];
-        $telFixo = $_POST['telFixo'];
-        $cel = $_POST['cel'];
-        $endereco = $_POST['endereco'];
-        $email = $_POST['email'];
-        $CPF = $_POST['CadastroPessoaFisica'];
-        $login = $_POST['login'];
-        $senha = $_POST['senha'];
-        $gender = $_POST['gender'];
-
-        switch ($gender) {
-            case '1':
-                $genderDB = 'M';
-                break;
-            case '2':
-                $genderDB = 'F';
-                break;
-            case '3':
-                $genderDB = 'O';
-                break;
-            case '4':
-                $genderDB = 'P';
-                break;
-            default:
-                // Valor padrão, se necessário
-                $genderDB = ''; // ou algum valor padrão
-                break;
-        }
-
-
-        $result = mysqli_query($conexao, "INSERT INTO usuarios (nome, data_nasc, mother_name, telefone_fixo, celular, endereco, email, cpf, username, senha, gender)
-        VALUES ('$nome', '$bornDate', '$motherName', '$telFixo', '$cel', '$endereco', '$email', '$CPF', '$login', '$senha', '$genderDB')");
-
+    switch ($gender) {
+        case '1':
+            $genderDB = 'M';
+            break;
+        case '2':
+            $genderDB = 'F';
+            break;
+        case '3':
+            $genderDB = 'O';
+            break;
+        case '4':
+            $genderDB = 'P';
+            break;
+        default:
+            $genderDB = ''; // Valor padrão, se necessário
+            break;
     }
+
+    $stmt = $conexao->prepare("INSERT INTO usuarios (nome, data_nasc, mother_name, telefone_fixo, celular, endereco, email, cpf, username, senha, gender)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssssss", $nome, $bornDate, $motherName, $telFixo, $cel, $endereco, $email, $CPF, $login, $senha, $genderDB);
+
+    if ($stmt->execute()) {
+        echo "Usuário registrado com sucesso!";
+    } else {
+        echo "Erro ao registrar usuário: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conexao->close();
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">

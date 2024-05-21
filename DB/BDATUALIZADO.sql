@@ -35,10 +35,10 @@ CREATE TABLE `usuarios` (
   `email` varchar(45) NOT NULL,
   `cpf` varchar(11) NOT NULL,
   `username` varchar(6) NOT NULL,
-  `senha` varchar(8) NOT NULL,
+  `senha` varchar(255) DEFAULT NULL,
   `gender` char(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Walmir Machado da silva junior','2000-11-18','valda azevedo da silva','(+55)1234123412','(+55)1234123412','rua teste','walmirjun7@gmail.com','12312312312','tester','12345678',''),(2,'Walmir Machado da silva junior','2000-11-18','valda azevedo da silva','(+55)1234123412','(+55)1234123412','rua teste','walmirjun77@gmail.com','12312312312','tester','12345678','M'),(3,'Walmir Machado da silva junior','2000-11-18','valda azevedo da silva','(+55)1234123412','(+55)1234123412','rua teste','walmirjun77@gmail.com','12312312312','tester','12345678','M'),(4,'Walmir Machado da silva junior','2000-11-18','valda azevedo da silva','(+55)1234123412','(+55)1234123412','rua teste','walmirjun77@gmail.com','12312312312','tester','12345678','M'),(5,'Walmir Machado da silva junior','2000-11-18','valda azevedo da silva','(+55)1234123412','(+55)1234123412','rua teste','walmirjun77@gmail.com','12312312312','tester','12345678','M'),(6,'Walmir Machado da silva junior','2000-11-18','valda azevedo da silva','(+55)1234123412','(+55)1234123412','rua teste','walmirjun77@gmail.com','12312312312','tester','12345678','M'),(7,'Walmir Machado da silva junior','2000-11-18','valda azevedo da silva','(+55)1234123412','(+55)1234123412','rua teste','walmirjun77@gmail.com','12312312312','tester','12345678','M'),(8,'Walmir Machado da silva junior','2000-11-18','valda azevedo da silva','(+55)1234123412','(+55)1234123412','rua teste','walmirjun7@gmail.com','12312312312','juntzu','12345678','M');
+INSERT INTO `usuarios` VALUES (10,'Walmir Machado da silva junior','2000-11-18','valda azevedo da silva','(+55)1234123412','(+55)1234123412','rua teste','walmirjun7@gmail.com','12312312312','tester','$2y$10$m','O'),(11,'Walmir Machado da silva junior','2000-11-18','valda azevedo da silva','(+55)1234123412','(+55)1234123412','rua teste','walmirjun7@gmail.com','12312312312','testet','$2y$10$n.BX8OX84Ra9xp9J0EgviufkfPvcito2AFeNae7PgU33tMXleTpSe','M');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-18 13:06:35
+-- Dump completed on 2024-05-21 15:22:50
