@@ -37,8 +37,9 @@ CREATE TABLE `usuarios` (
   `username` varchar(6) NOT NULL,
   `senha` varchar(255) DEFAULT NULL,
   `gender` char(1) NOT NULL,
+  `tipo_perfil` enum('comum','master') NOT NULL DEFAULT 'comum',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +48,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (10,'Walmir Machado da silva junior','2000-11-18','valda azevedo da silva','(+55)1234123412','(+55)1234123412','rua teste','walmirjun7@gmail.com','12312312312','tester','$2y$10$m','O'),(11,'Walmir Machado da silva junior','2000-11-18','valda azevedo da silva','(+55)1234123412','(+55)1234123412','rua teste','walmirjun7@gmail.com','12312312312','testet','$2y$10$n.BX8OX84Ra9xp9J0EgviufkfPvcito2AFeNae7PgU33tMXleTpSe','M');
+INSERT INTO `usuarios` VALUES (10,'Walmir Machado da silva junior','2000-11-18','valda azevedo da silva','(+55)1234123412','(+55)1234123412','rua teste','walmirjun7@gmail.com','12312312312','tester','$2y$10$m','O','comum'),(11,'Walmir Machado da silva junior','2000-11-18','valda azevedo da silva','(+55)1234123412','(+55)1234123412','rua teste','walmirjun7@gmail.com','12312312312','testet','$2y$10$n.BX8OX84Ra9xp9J0EgviufkfPvcito2AFeNae7PgU33tMXleTpSe','M','comum'),(13,'ADMIN ADMIN ADMIN','2001-01-01','ADMIN ADMIN ADMIN','(+55)1234123412','(+55)1234123412','rua teste','asdsadsad@gmail.com','11111111111','WEBMKM','$2y$10$6nV4CQub3i1WNazh9yJNLedcx1INbz04NJ4.mUTdCiU9LvREFbr.O','P','master');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-21 15:22:50
+-- Dump completed on 2024-05-22 18:32:52
