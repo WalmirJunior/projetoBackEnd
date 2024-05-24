@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
             $genderDB = 'P';
             break;
         default:
-            $genderDB = ''; // Valor padrão, se necessário
+            $genderDB = ''; 
             break;
     }
 
@@ -139,7 +139,7 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <div class="justify-center">
-                    <!-- <button onclick="cadastrar()" class="btn btn-danger col-12 col-md-6">Cadastrar</button> -->
+                    
                     <input type="submit" name="submit" id="submit">
                 </div>
             <p class="text-center">Já possui login? <a href="login.html">Clique aqui.</a></p>
