@@ -1,5 +1,5 @@
 <?php
-    $dbHost = 'Localhost';
+    $dbHost = 'localhost';
     $dbUsername= 'root';
     $dbPassword = '';
     $dbName = 'formulario-telecall';
