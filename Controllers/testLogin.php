@@ -9,18 +9,18 @@ if (!empty($_POST['usuario']) && !empty($_POST['senha'])) {
     $sql->bind_param("s", $usuario);
     $sql->execute();
     $result = $sql->get_result();
-
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
-        // Verificar a senha (assumindo que as senhas são armazenadas como hashes)
+        
         if (password_verify($senha, $user['senha'])) {
-            // Login bem-sucedido, redirecionar ou iniciar sessão
+            
             session_start();
             $_SESSION['usuario'] = $usuario;
+            $_SESSION['tipo_perfil'] = $user['tipo_perfil']; 
             echo "Login bem-sucedido!";
             echo "<script>
                     setTimeout(function() {
-                        window.location.href = '../main.html';
+                        window.location.href = '../main.php';
                     }, 2000); // Redireciona após 2 segundos (2000 milissegundos)
                   </script>";
         } else {
@@ -34,12 +34,11 @@ if (!empty($_POST['usuario']) && !empty($_POST['senha'])) {
     } else {
         echo "Usuário não encontrado!";
         echo "<script>
-                    setTimeout(function() {
-                        window.location.href = '../login.html';
-                    }, 2000); // Redireciona após 2 segundos (2000 milissegundos)
-                  </script>";
+                setTimeout(function() {
+                    window.location.href = '../login.html';
+                }, 2000); // Redireciona após 2 segundos (2000 milissegundos)
+              </script>";
     }
-
     $sql->close();
 } else {
     echo "Preencha todos os campos!";
@@ -47,7 +46,7 @@ if (!empty($_POST['usuario']) && !empty($_POST['senha'])) {
             setTimeout(function() {
                 window.location.href = '../login.html';
             }, 2000); // Redireciona após 2 segundos (2000 milissegundos)
-        </script>";
+          </script>";
 }
 
 $conexao->close();

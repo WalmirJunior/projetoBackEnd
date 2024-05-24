@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    $tipo_perfil = isset($_SESSION['tipo_perfil']) ? $_SESSION['tipo_perfil'] : 'comum';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,10 +20,11 @@
 
 <body class="mainBody">
     <header>
+    <header>
         <nav class="navbar navbar-expand-lg navbar-light changeable-text-container"
             style="box-shadow: 1px 1px 6px #959595; background-color: #B81E23; padding: 0px!important">
             <div class="container-fluid" style="padding-left: 0px!important;">
-                <div class="|"><img src="../Projeto_Fronnt-End/img/cropped-navbartelecall-e1664888635140.png"
+                <div class="|"><img src="img/cropped-navbartelecall-e1664888635140.png"
                         style="height: 3rem;" alt=""></div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -30,7 +35,7 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item" style="font-weight: 600;">
                             <button class="nav-link active" aria-current="page"
-                                onclick="window.location.href='main.html'" style="color: white;">Home</button>
+                                onclick="window.location.href='main.php'" style="color: white;">Home</button>
                         </li>
                         <li class="nav-item dropdown" style="font-weight: 600;">
                             <button class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
@@ -54,9 +59,19 @@
                             <button class="nav-link" onclick="window.location.href='sobre.html'"
                                 style="color: white;">Sobre Nós</button>
                         </li>
+                        <?php if ($tipo_perfil == 'master'): ?>
+                        <li class="nav-item" style="font-weight: 600;">
+                            <button class="nav-link" onclick="window.location.href='consulta.html'"
+                                style="color: white;">Consulta usuários</button>
+                        </li>
+                       
+                        <?php endif; ?>
+                        <li class="nav-item" style="font-weight: 600;">
+                            <button class="nav-link" onclick="window.location.href='modeloBD.html'"
+                                style="color: white;">Modelo BD</button>
+                        </li>
                         <li class="nav-item" style="font-weight: 600;">
                             <button id="botaoLogin" class="nav-link active" aria-current="page" onclick="sair()" type="button" style="color: white;">Sair</button>
-
                         </li>
                     </ul>
                 </div>
