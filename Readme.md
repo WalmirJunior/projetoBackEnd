@@ -7,7 +7,7 @@ In Development 🟡
 1. Certifique-se de ter o MySQL instalado em sua máquina.
 2. Clone este repositório:
 ```bash
-   git clone https://github.com/seuusuario/seuprojeto.git
+   git clone https://github.com/WalmirJunior/projetoBackEnd
 ```
 3. Navegue até o diretório do projeto:
 ```bash
