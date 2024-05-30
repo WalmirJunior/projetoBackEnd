@@ -1,6 +1,14 @@
 <?php
     session_start();
     $tipo_perfil = isset($_SESSION['tipo_perfil']) ? $_SESSION['tipo_perfil'] : 'comum';
+    
+    if (!isset($_SESSION['usuario'])){
+        // Redireciona para a página de login se o usuário não estiver logado
+        header("Location: login.html");
+        exit(); // Encerra a execução do script
+    }
+    
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -71,7 +79,8 @@
                                 style="color: white;">Modelo BD</button>
                         </li>
                         <li class="nav-item" style="font-weight: 600;">
-                            <button id="botaoLogin" class="nav-link active" aria-current="page" onclick="sair()" type="button" style="color: white;">Sair</button>
+                            <button class="nav-link" onclick="window.location.href='Controllers/logout.php'"
+                                style="color: white;">Sair</button>
                         </li>
                     </ul>
                 </div>
