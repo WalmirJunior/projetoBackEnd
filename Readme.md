@@ -1,7 +1,7 @@
 # Projeto Telecall
 ## Description 
 ## Status
-In Development 🟡
+Em desenvolvimento 🟡
 ## Configuração do Banco de Dados
 
 1. Certifique-se de ter o MySQL instalado em sua máquina.
