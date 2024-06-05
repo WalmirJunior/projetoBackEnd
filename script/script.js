@@ -1,7 +1,7 @@
-
     let nome = document.querySelector('#nome');
     let labelNome = document.querySelector('#labelNome');
     let validNome = false;
+    
     
     let nomeMae = document.querySelector('#motherName');
     let labelMother = document.querySelector('#labelMother');
@@ -50,6 +50,12 @@
     let selectedGender = null;
     
     var usuarioLogado = false;
+
+    let cep = document.querySelector('#cep');
+    let labelCep = document.querySelector('#labelCep');
+    let validCep = false;
+
+    
     // let botaoLogin = document.getElementById('botaoLogin');
     
     
@@ -159,6 +165,7 @@
         }
     });
     
+    
     cel.addEventListener('keyup', () => {
         const celValue = cel.value.trim();
     
@@ -173,7 +180,7 @@
     
     
     
-    bornDate.addEventListener('change', () => {
+    bornDate.addEventListener('input', () => {
         const bornDateValue = bornDate.value.trim();
     
         if (validarDataNascimento(bornDateValue)) {
@@ -184,30 +191,24 @@
             validDate = false;
         }
     });
-    genderInputs.forEach((genderInput) => {
-        genderInput.addEventListener('click', () => {
-            selectedGender = genderInput.value;
-        });
-    });
     
     
     function validarDataNascimento(dataNascimento) {
-        const dataRegex = /^\d{4}-\d{2}-\d{2}$/;
+        const dataRegex = /^\d{4}\/\d{2}\/\d{2}$/;
     
         if (!dataRegex.test(dataNascimento)) {
             return false;
         }
     
-        const partesData = dataNascimento.split('-');
+        const partesData = dataNascimento.split('/');
         const ano = parseInt(partesData[0], 10);
         const mes = parseInt(partesData[1], 10);
         const dia = parseInt(partesData[2], 10);
     
         const dataAtual = new Date();
-        const ultimoDiaDoMes = new Date(ano, mes, 0).getDate(); // Obtem o último dia do mês
+        const ultimoDiaDoMes = new Date(ano, mes, 0).getDate(); // Obtém o último dia do mês
     
         return (
-            dataRegex.test(dataNascimento) &&
             dia >= 1 &&
             dia <= ultimoDiaDoMes &&
             mes >= 1 &&
@@ -219,10 +220,11 @@
     
     
     
-    function validarTelefone(telefone) {
+    function validarTelefone(telefone){
         const telefoneRegex = /^\(\+55\)\d{2}\d{8,9}$/;
         return telefoneRegex.test(telefone);
-    }
+    };
+    
     
     
     function validarEndereco(endereco) {
@@ -241,7 +243,20 @@
         var padrao = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/;
         return padrao.test(email);
     }
+    cep.addEventListener('keyup', () => {
+        const cepValue = cep.value.trim();
     
+        if (cepValue.length === 9 && /^\d{5}-\d{3}$/.test(cepValue)) {
+            labelCep.style.color = 'green';
+            validCep = true;
+        } else {
+            labelCep.style.color = 'red';
+            validCep = false;
+        }
+    });
+    
+    
+
     //----------------------------------------------Função do botão de cadastrar-----------------------------------------------------------------------------------------
     
     function cadastrar() {

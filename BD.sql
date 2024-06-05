@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `formulario-telecall` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
-USE `formulario-telecall`;
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: formulario-telecall
@@ -38,8 +36,9 @@ CREATE TABLE `usuarios` (
   `senha` varchar(255) DEFAULT NULL,
   `gender` char(1) NOT NULL,
   `tipo_perfil` enum('comum','master') NOT NULL DEFAULT 'comum',
+  `cep` varchar(9) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +47,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (10,'Walmir Machado da silva junior','2000-11-18','valda azevedo da silva','(+55)1234123412','(+55)1234123412','rua teste','walmirjun7@gmail.com','12312312312','tester','$2y$10$m','O','comum'),(11,'Walmir Machado da silva junior','2000-11-18','valda azevedo da silva','(+55)1234123412','(+55)1234123412','rua teste','walmirjun7@gmail.com','12312312312','testet','$2y$10$n.BX8OX84Ra9xp9J0EgviufkfPvcito2AFeNae7PgU33tMXleTpSe','M','comum'),(13,'ADMIN ADMIN ADMIN','2001-01-01','ADMIN ADMIN ADMIN','(+55)1234123412','(+55)1234123412','rua teste','asdsadsad@gmail.com','11111111111','WEBMKM','$2y$10$6nV4CQub3i1WNazh9yJNLedcx1INbz04NJ4.mUTdCiU9LvREFbr.O','P','master');
+INSERT INTO `usuarios` VALUES (1,'ADMIN ADMIN ADMIN','2001-01-01','ADMIN ADMIN ADMIN','(+55)1234123412','(+55)1234123412','rua teste','asdsadsad@gmail.com','11111111111','WEBMKM','$2y$10$6nV4CQub3i1WNazh9yJNLedcx1INbz04NJ4.mUTdCiU9LvREFbr.O','P','master','12312-321'),(14,'teste cep no db','2000-10-18','teste cep no db mae','(+55)1234123412','(+55)1234123412','rua teste','asdas@gmail.com','123.123.123','tstcep','$2y$10$M.OqTXJ5WmpTHTZl/qQzpura2E33oSCe608WZ9iUxBUBTTm2wlV7K','P','comum','12312-321'),(16,'asdasdasdasdasdsa','2000-01-01','asdasdasdasdasdsa','(+55)1234123412','(+55)1234123412','rua teste','dasdas@gmail.com','111.111.111','testdn','$2y$10$HaNYNGvej/O6BsAkkzLvDecmCQ1SdUkLJ9MdNqgFTQX7VUv7Re.RW','M','comum','25030-060');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -61,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-22 18:32:52
+-- Dump completed on 2024-06-05  0:46:23
