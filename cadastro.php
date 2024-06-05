@@ -13,6 +13,7 @@ if (isset($_POST['submit'])) {
     $login = trim($_POST['login']);
     $senha = password_hash(trim($_POST['senha']), PASSWORD_DEFAULT);
     $gender = trim($_POST['gender']);
+    $cep = trim($_POST['cep']);
 
     switch ($gender) {
         case '1':
@@ -32,12 +33,17 @@ if (isset($_POST['submit'])) {
             break;
     }
 
-    $stmt = $conexao->prepare("INSERT INTO usuarios (nome, data_nasc, mother_name, telefone_fixo, celular, endereco, email, cpf, username, senha, gender)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssssssss", $nome, $bornDate, $motherName, $telFixo, $cel, $endereco, $email, $CPF, $login, $senha, $genderDB);
+    $stmt = $conexao->prepare("INSERT INTO usuarios (nome, data_nasc, mother_name, telefone_fixo, celular, endereco, email, cpf, username, senha, gender, cep)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssssssss", $nome, $bornDate, $motherName, $telFixo, $cel, $endereco, $email, $CPF, $login, $senha, $genderDB, $cep);
 
     if ($stmt->execute()) {
         echo "Usuário registrado com sucesso!";
+        echo "<script>
+                setTimeout(function() {
+                    window.location.href = 'login.html';
+                }, 2000);
+              </script>";
     } else {
         echo "Erro ao registrar usuário: " . $stmt->error;
     }
@@ -55,10 +61,10 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" defer></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <script src="script/modoNoturno.js" defer></script>
-    <script src="script/script.js" defer></script>
     <script src="script/acessibilidade.js" defer></script>
 </head>
 <body class="CadLog">
@@ -75,8 +81,8 @@ if (isset($_POST['submit'])) {
                             <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome completo">
                         </div>
                         <div class="form-group">
-                            <label for="bornDate" id="labelDate" >Data de nascimento:</label>
-                            <input class="form-control datanasc" type="date" id="bornDate" name="bornDate" required>
+                            <label for="bornDate" id="labelDate">Data de nascimento:</label>
+                            <input class="form-control" type="text" id="bornDate" name="bornDate" required placeholder="YYYY-MM-DD">
                         </div>
         
                         <div class="form-group">
@@ -96,6 +102,10 @@ if (isset($_POST['submit'])) {
                         <div class="form-group">
                             <label for="endereco" id="labelEndereco">Endereço:</label>
                             <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Digite seu endereço">
+                        </div>
+                        <div class="form-group">
+                            <label for="cep" id="labelCep">CEP:</label>
+                            <input type="text" class="form-control" id="cep" name="cep" placeholder="Digite seu CEP">
                         </div>
                         <div class="form-group">
                             <label for="email" id="labelEmail">Email:</label>
@@ -160,9 +170,19 @@ if (isset($_POST['submit'])) {
 
 
     
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#cep').mask('00000-000');
+            $('#CadastroPessoaFisica').mask('000.000.000-00');
+            $('#bornDate').mask('0000-00-00');
+            
+        });
+    </script>
+    
+    <script src="script/script.js" ></script>
 </body>
 <script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
 </html>

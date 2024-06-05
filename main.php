@@ -1,18 +1,14 @@
 <?php
-    session_start();
-    $tipo_perfil = isset($_SESSION['tipo_perfil']) ? $_SESSION['tipo_perfil'] : 'comum';
-    
-    if (!isset($_SESSION['usuario'])){
-        // Redireciona para a página de login se o usuário não estiver logado
-        header("Location: login.html");
-        exit(); // Encerra a execução do script
-    }
-    
+session_start();
+$tipo_perfil = isset($_SESSION['tipo_perfil']) ? $_SESSION['tipo_perfil'] : 'comum';
 
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.html");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,15 +21,12 @@
     <script src="script/acessibilidade.js" defer></script>
     <title>CPaaS</title>
 </head>
-
 <body class="mainBody">
-    <header>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light changeable-text-container"
             style="box-shadow: 1px 1px 6px #959595; background-color: #B81E23; padding: 0px!important">
             <div class="container-fluid" style="padding-left: 0px!important;">
-                <div class="|"><img src="img/cropped-navbartelecall-e1664888635140.png"
-                        style="height: 3rem;" alt=""></div>
+                <div><img src="img/cropped-navbartelecall-e1664888635140.png" style="height: 3rem;" alt=""></div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -54,13 +47,11 @@
                                 <li><button class="dropdown-item"
                                         onclick="window.location.href='servicos/2FA.html'">2FA</button></li>
                                 <li><button class="dropdown-item"
-                                        onclick="window.location.href='servicos/smsprogramavel.html'">Sms Programável</button>
-                                </li>
+                                        onclick="window.location.href='servicos/smsprogramavel.html'">Sms Programável</button></li>
                                 <li><button class="dropdown-item"
                                         onclick="window.location.href='servicos/gvc.html'">Google Verified Calls</button></li>
                                 <li><button class="dropdown-item"
-                                        onclick="window.location.href='servicos/numeromascara.html'">Número Máscara</button>
-                                </li>
+                                        onclick="window.location.href='servicos/numeromascara.html'">Número Máscara</button></li>
                             </ul>
                         </li>
                         <li class="nav-item" style="font-weight: 600;">
@@ -72,7 +63,6 @@
                             <button class="nav-link" onclick="window.location.href='consulta.html'"
                                 style="color: white;">Consulta usuários</button>
                         </li>
-                       
                         <?php endif; ?>
                         <li class="nav-item" style="font-weight: 600;">
                             <button class="nav-link" onclick="window.location.href='modeloBD.html'"
@@ -86,10 +76,6 @@
                 </div>
             </div>
         </nav>
-    </header>
-    
-    
-
     </header>
     <main>
         <div class="m-3 mb-5 d-flex justify-content-center ">
@@ -184,18 +170,15 @@
                         </div>
                 </section>
             </div>
-            </div>
         </article>
         <div class="d-flex justify-content-center my-2 ">
             <div class="">
                 <h1 class="d-flex justify-content-center changeable-text-container">Quem usa o CPaas?</h1>
-            
                 <img src="img/QuemUsaOCpaas.png" alt="Empresas que usam o CPaaS" class="img-fluid">
             </div>  
         </div>
         <div>
             <input type="checkbox" class="checkbox"  id="chk">
-
             <label for="chk" class="label">
                 <i class="fas fa-moon"></i>
                 <i class="fas fa-sun"></i>
@@ -206,14 +189,10 @@
             <button id="increase-font">Aumentar Fonte</button>
             <button id="decrease-font">Diminuir Fonte</button>
         </div>
-
-    
     <footer class="d-flex justify-content-center align-items-center p-3"
         style="background:linear-gradient(to left, #EB0008, #B81E23); color:white;">
         <h5>CPaaS &#169;</h5>
     </footer>
-
 </body>
-
 <script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
 </html>

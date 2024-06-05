@@ -16,19 +16,22 @@ if (!empty($_POST['usuario']) && !empty($_POST['senha'])) {
             
             session_start();
             $_SESSION['usuario'] = $usuario;
+            $_SESSION['user_id'] = $user['id'];
             $_SESSION['tipo_perfil'] = $user['tipo_perfil']; 
             echo "Login bem-sucedido!";
-            echo "<script>
-                    setTimeout(function() {
-                        window.location.href = '../main.php';
-                    }, 2000); // Redireciona após 2 segundos (2000 milissegundos)
-                  </script>";
+
+            if ($user['tipo_perfil'] === 'master') {
+                header("Location: pergunta_2fa.php");
+            } else {
+                header("Location: ../main.php");
+            }
+            exit;
         } else {
             echo "Senha incorreta!";
             echo "<script>
                     setTimeout(function() {
                         window.location.href = '../login.html';
-                    }, 2000); // Redireciona após 2 segundos (2000 milissegundos)
+                    }, 2000);
                   </script>";
         }
     } else {
@@ -36,7 +39,7 @@ if (!empty($_POST['usuario']) && !empty($_POST['senha'])) {
         echo "<script>
                 setTimeout(function() {
                     window.location.href = '../login.html';
-                }, 2000); // Redireciona após 2 segundos (2000 milissegundos)
+                }, 2000);
               </script>";
     }
     $sql->close();
@@ -45,7 +48,7 @@ if (!empty($_POST['usuario']) && !empty($_POST['senha'])) {
     echo "<script>
             setTimeout(function() {
                 window.location.href = '../login.html';
-            }, 2000); // Redireciona após 2 segundos (2000 milissegundos)
+            }, 2000);
           </script>";
 }
 
