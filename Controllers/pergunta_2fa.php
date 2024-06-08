@@ -26,7 +26,7 @@ $_SESSION['pergunta'] = $chave_pergunta;
 </head>
 <body>
     <form action="verificar_2fa.php" method="post">
-        <label for="resposta"><?php echo $pergunta; ?></label>
+        <label for="resposta"><?php echo $pergunta ?></label>
         <input type="text" name="resposta" id="resposta" required>
         <input type="submit" value="Enviar">
     </form>
@@ -36,7 +36,8 @@ $_SESSION['pergunta'] = $chave_pergunta;
             if (pergunta == 'data_nasc') {
                 $('#resposta').mask('0000/00/00');
             } else if (pergunta == 'cep') {
-                $('#resposta').mask('00000-000');
+                $('#resposta').mask('00000-000'); 
+                
             }
         });
     </script>

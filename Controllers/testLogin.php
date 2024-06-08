@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (!empty($_POST['usuario']) && !empty($_POST['senha'])) {
     include_once('../config.php');
 
@@ -14,13 +15,13 @@ if (!empty($_POST['usuario']) && !empty($_POST['senha'])) {
         
         if (password_verify($senha, $user['senha'])) {
             
-            session_start();
+            
             $_SESSION['usuario'] = $usuario;
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['tipo_perfil'] = $user['tipo_perfil']; 
             echo "Login bem-sucedido!";
 
-            if ($user['tipo_perfil'] === 'master') {
+            if ($user['tipo_perfil'] === 'comum') {
                 header("Location: pergunta_2fa.php");
             } else {
                 header("Location: ../main.php");
