@@ -42,6 +42,8 @@
     let bornDate = document.querySelector('#bornDate');
     let labelDate = document.querySelector('#labelDate');
     let validDate = false;
+    console.log('Elemento bornDate:', bornDate);
+    console.log('Elemento labelDate:', labelDate);
     
     let msgError = document.querySelector('#msgError');
     let msgSuccess = document.querySelector('#msgSuccess');
@@ -194,13 +196,13 @@
     
     
     function validarDataNascimento(dataNascimento) {
-        const dataRegex = /^\d{4}\/\d{2}\/\d{2}$/;
+        const dataRegex = /^\d{4}-\d{2}-\d{2}$/;
     
         if (!dataRegex.test(dataNascimento)) {
             return false;
         }
     
-        const partesData = dataNascimento.split('/');
+        const partesData = dataNascimento.split('-');
         const ano = parseInt(partesData[0], 10);
         const mes = parseInt(partesData[1], 10);
         const dia = parseInt(partesData[2], 10);
@@ -217,7 +219,6 @@
             ano <= 9999
         );
     }
-    
     
     
     function validarTelefone(telefone){
@@ -304,60 +305,60 @@
     
     //--------------------Função da pagina de login-------------------------------
     
-    function entrar() {
-        let usuario = document.querySelector('#usuario');
-        let userLabel = document.querySelector('#userLabel');
+    // function entrar() {
+    //     let usuario = document.querySelector('#usuario');
+    //     let userLabel = document.querySelector('#userLabel');
     
-        let password = document.querySelector('#senha');
-        let labelPassword = document.querySelector('#senhaLabel');
+    //     let password = document.querySelector('#senha');
+    //     let labelPassword = document.querySelector('#senhaLabel');
     
-        let msgError = document.querySelector('#msgError');
-        let listaUser = [];
+    //     let msgError = document.querySelector('#msgError');
+    //     let listaUser = [];
     
-        let userValid = {
-            login: '',
-            senha: '',
-        }
+    //     let userValid = {
+    //         login: '',
+    //         senha: '',
+    //     }
     
-        listaUser = JSON.parse(localStorage.getItem('listaUsuario'));
+    //     listaUser = JSON.parse(localStorage.getItem('listaUsuario'));
     
-        if (!usuario.value || !password.value) {
-            msgError.setAttribute('style', 'display:block');
-            msgError.innerHTML = 'Por favor, preencha ambos os campos.';
-            return;
-        }
+    //     if (!usuario.value || !password.value) {
+    //         msgError.setAttribute('style', 'display:block');
+    //         msgError.innerHTML = 'Por favor, preencha ambos os campos.';
+    //         return;
+    //     }
     
-        listaUser.forEach((item) => {
-            if (usuario.value == item.loginCad && password.value == item.senhaCad) {
-                userValid = {
-                    login: item.loginCad,
-                    senha: item.senhaCad
-                };
-            };
-        });
+    //     listaUser.forEach((item) => {
+    //         if (usuario.value == item.loginCad && password.value == item.senhaCad) {
+    //             userValid = {
+    //                 login: item.loginCad,
+    //                 senha: item.senhaCad
+    //             };
+    //         };
+    //     });
     
-        if (usuario.value == userValid.login && password.value == userValid.senha) {
-            window.location.href = 'main.html';
-            let token = Math.random().toString(16).substring(2) + Math.random().toString(16).substring(2);
-            localStorage.setItem('token', token)
+    //     if (usuario.value == userValid.login && password.value == userValid.senha) {
+    //         window.location.href = 'main.html';
+    //         let token = Math.random().toString(16).substring(2) + Math.random().toString(16).substring(2);
+    //         localStorage.setItem('token', token)
     
-        } else {
-            userLabel.style.color = 'red';
-            usuario.style.color = 'red';
-            labelPassword.style.color = 'red';
-            password.style.color = 'red';
-            msgError.setAttribute('style', 'display:block');
-            msgError.innerHTML = 'Usuario ou senha incorretos';
-            usuario.focus();
-        };
-    };
+    //     } else {
+    //         userLabel.style.color = 'red';
+    //         usuario.style.color = 'red';
+    //         labelPassword.style.color = 'red';
+    //         password.style.color = 'red';
+    //         msgError.setAttribute('style', 'display:block');
+    //         msgError.innerHTML = 'Usuario ou senha incorretos';
+    //         usuario.focus();
+    //     };
+    // };
     // -------------------------------------------------------------------------------------------------------------
-function sair(){
-    localStorage.removeItem('token')
-    window.location.href = 'login.html'
-}
+// function sair(){
+//     localStorage.removeItem('token')
+//     window.location.href = 'login.html'
+// }
 
-function sairServicos(){
-    localStorage.removeItem('token')
-    window.location.href = '../login.html'
-}
+// function sairServicos(){
+//     localStorage.removeItem('token')
+//     window.location.href = '../login.html'
+// }
