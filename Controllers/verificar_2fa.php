@@ -11,8 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pergunta_chave = $_SESSION['pergunta'];
     $resposta = trim($_POST['resposta']);
 
-    // Exemplo de ID de usuário. Em uma aplicação real, o ID do usuário deve ser identificado corretamente.
-    $userId = 1;
+    $userId = $_SESSION['user_id'];
 
     // Consulta ao banco de dados para obter a resposta correta
     $stmt = $conexao->prepare("SELECT $pergunta_chave FROM usuarios WHERE id = ?");
@@ -23,22 +22,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->close();
 
     // Adicione depuração aqui
-    error_log("Resposta enviada: " . $resposta);
-    error_log("Resposta correta: " . $resposta_correta);
+    // echo ("Resposta correta: " . $resposta_correta);
 
     if ($pergunta_chave == 'data_nasc') {
         $resposta_correta = date('Y/m/d', strtotime($resposta_correta));
-        error_log("Resposta correta formatada (data_nasc): " . $resposta_correta);
+        
     }
 
     if ($pergunta_chave == 'endereco') {
         // Formata a resposta correta do CEP 
         $resposta_correta = preg_replace('/[^0-9]/', '', $resposta_correta); // Remove qualquer caractere não numérico
         $resposta_correta = substr($resposta_correta, 0, 5) . '-' . substr($resposta_correta, 5); // Formate para 00000-000
-        error_log("Resposta correta formatada (endereco): " . $resposta_correta);
+        
     }
 
-    error_log("Comparação: enviada=" . $resposta . " correta=" . $resposta_correta);
+
 
     if (strcasecmp($resposta, $resposta_correta) === 0) {
         echo "Autenticação bem-sucedida!";
