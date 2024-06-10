@@ -56,80 +56,87 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" defer></script>
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+     <link rel="stylesheet" href="css/estilo.css">
+     <link rel="stylesheet" href="css/botoes.css">
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <script src="script/modoNoturno.js" defer></script>
     <script src="script/acessibilidade.js" defer></script>
 </head>
 <body class="CadLog">
     <form action="cadastro.php" method="POST">
-        <div class="container changeable-text-container">
-            <div class="card cardCD m-auto">
-                <h1>Cadastre-se</h1>
-                <div id="msgError"></div>
-                <div id="msgSuccess"></div>
-                <div class="row grupos">
-                    <div class="col-md-6 group1">
-                        <div class="form-group mb-3">
-                            <label for="nome" id="labelNome">Nome:</label>
-                            <input type="text" class="form-control" required id="nome" name="nome" placeholder="Digite seu nome completo">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="bornDate" id="labelDate">Data de nascimento:</label>
-                            <input class="form-control" type="text" id="bornDate" name="bornDate" required placeholder="YYYY-MM-DD">
-                        </div>
-        
-                        <div class="form-group mb-3">
-                            <label for="motherName" id="labelMother">Nome Materno:</label>
-                            <input type="text" class="form-control" required id="motherName" name="motherName" placeholder="Digite o nome da sua mãe">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="telFixo" id="labelFixo">Telefone Fixo:</label>
-                            <input type="text" class="form-control" required id="telFixo" name="telFixo" placeholder="(+55)XXXXXXXXXX">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="cel" id="labelCelular">Celular:</label>
-                            <input type="text" class="form-control" required id="cel" name="cel" placeholder="(+55)XXXXXXXXXX">
-                        </div>
+    <section class="h-100 h-custom gradient-custom-2">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12">
+        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <h3 class="fw-normal mb-5" style="color: #4835d4;">Informações Gerais</h3>
+
+                  <!-- <div class="mb-4 pb-2">
+                    <select data-mdb-select-init>
+                      <option value="1">Title</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                      <option value="4">Four</option>
+                    </select>
+                  </div> -->
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+
+                      <div data-mdb-input-init class="form-outline">
+                        <input type="text" id="nome" name="nome" class="form-control form-control-lg" />
+                        <label class="form-label" id="labelNome" for="form3Examplev2">Nome Completo</label>
+                      </div>
+
                     </div>
-                    <div class="col-md-6 group2">
-                        <div class="form-group mb-3">
-                            <label for="endereco" id="labelEndereco">Endereço:</label>
-                            <input type="text" class="form-control" required id="endereco" name="endereco" placeholder="Digite seu endereço">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="cep" id="labelCep">CEP:</label>
-                            <input type="text" class="form-control" required id="cep" name="cep" placeholder="Digite seu CEP">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="email" id="labelEmail">Email:</label>
-                            <input type="email" class="form-control" required id="email" name="email" placeholder="Digite seu email">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="CadastroPessoaFisica" id="labelCadastroPessoa">CPF:</label>
-                            <input type="text" class="form-control" required id="CadastroPessoaFisica" name="CadastroPessoaFisica" placeholder="123.123.123-12">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="login" id="labelLogin">Nome de Usuário:</label>
-                            <input type="text" class="form-control" required id="login" name="login">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="senha" id="labelSenha">Senha:</label>
-                            <input type="password" class="form-control" required id="senha" name="senha">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="confirmaSenha" id="labelConfirma">Confirmar Senha:</label>
-                            <input type="password" class="form-control" required id="confirmaSenha" name="confirmaSenha">
-                        </div>
+                    <div class="col-md-6 mb-4 pb-2">
+
+                      <div data-mdb-input-init class="form-outline">
+                        <input type="text" id="bornDate" name="bornDate" class="form-control form-control-lg" />
+                        <label class="form-label" id="labelDate" for="form3Examplev3">Data de Nascimento</label>
+                      </div>
+
                     </div>
-                </div>
-                <div class="mb-3 gender-group">
+                  </div>
+
+                  <div class="mb-4 pb-2">
+                    <div data-mdb-input-init class="form-outline">
+                      <input type="text" id="motherName" name="motherName" class="form-control form-control-lg" />
+                      <label class="form-label" id="labelMother" for="form3Examplev4">Nome Materno</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
+
+                      <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="text" id="telFixo" name="telFixo" class="form-control form-control-lg" />
+                        <label class="form-label" id="labelFixo" for="form3Examplev5">Telefone Fixo</label>
+                      </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="text" id="cel" name="cel" class="form-control form-control-lg" />
+                        <label class="form-label" id="labelCelular" for="form3Examplev5">Celular</label>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="mb-3 gender-group">
                     <h4>Gênero: </h4>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="gender" id="masculino" value="1" required checked>
@@ -148,14 +155,95 @@ if (isset($_POST['submit'])) {
                         <label class="form-check-label" for="pnd"> Prefiro não dizer</label>
                     </div>
                 </div>
-                <div class="text-center">
+
+                </div>
+              </div>
+              <div class="col-lg-6 bg-indigo text-white">
+                <div class="p-5">
+                  <h3 class="fw-normal mb-5">Informações Adicionais</h3>
+
+                  <div class="mb-4">
+                    <div data-mdb-input-init class="form-outline form-white">
+                      <input type="text" id="email" name="email" class="form-control form-control-lg" />
+                      <label class="form-label" id="labelEmail" for="form3Examplea9">Email</label>
+                    </div>
+                  </div>
+
+                  <div class="mb-4 pb-2">
+                    <div data-mdb-input-init class="form-outline form-white">
+                      <input type="text" id="CadastroPessoaFisica" name="CadastroPessoaFisica" class="form-control form-control-lg" />
+                      <label class="form-label" id="labelCadastroPessoa" for="form3Examplea3">CPF</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-5 mb-4 pb-2">
+
+                      <div data-mdb-input-init class="form-outline form-white">
+                        <input type="text" id="cep" name="cep" class="form-control form-control-lg" />
+                        <label class="form-label" id="labelCep" for="form3Examplea4">CEP</label>
+                      </div>
+
+                    </div>
+                    <div class="col-md-7 mb-4 pb-2">
+
+                      <div data-mdb-input-init class="form-outline form-white">
+                        <input type="text" id="endereco" name="endereco" class="form-control form-control-lg" />
+                        <label class="form-label" id="labelEndereco" for="form3Examplea5">Endereço</label>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="mb-4 pb-2">
+                    <div data-mdb-input-init class="form-outline form-white">
+                      <input type="text" id="login" name="login" class="form-control form-control-lg" />
+                      <label class="form-label" id="labelLogin" for="form3Examplea6">Nome de usuário</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-5 mb-4 pb-2">
+
+                      <div data-mdb-input-init class="form-outline form-white">
+                        <input type="password" id="senha" name="senha" class="form-control form-control-lg" />
+                        <label class="form-label" id="labelSenha" for="form3Examplea7">Senha</label>
+                      </div>
+
+                    </div>
+                    <div class="col-md-7 mb-4 pb-2">
+
+                      <div data-mdb-input-init class="form-outline form-white">
+                        <input type="password" id="confirmaSenha" name="confirmaSenha" class="form-control form-control-lg" />
+                        <label class="form-label" id="labelConfirma" for="form3Examplea8">Confirmar Senha</label>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="form-check d-flex justify-content-start mb-4 pb-3">
+                    <input class="form-check-input me-3" type="checkbox" value="" id="form2Example3c" />
+                    <label class="form-check-label text-white" for="form2Example3">
+                      Eu aceito e concordo todos os <a href="#!" class="text-white"><u>Termos e Condições de Serviço</u></a>.
+                    </label>
+                  </div>
+
+                  <div class="text-center">
                     <input type="submit" name="submit" id="submit" class="btn btn-primary">
                 </div>
                 <p class="text-center mt-3">Já possui login? <a href="login.html">Clique aqui.</a></p>
+
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </form>
-    <input type="checkbox" class="checkbox" id="chk">
+      </div>
+    </div>
+  </div>
+</section>
+</form>
+    <input type="checkbox" class="checkbox"  id="chk">
 
     <label for="chk" class="label">
         <i class="fas fa-moon"></i>
@@ -167,16 +255,19 @@ if (isset($_POST['submit'])) {
         <button id="decrease-font">-</button>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.j.js" ></script><script>"/1.14.7/umd/popper.min.js"</script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function(){
             $('#cep').mask('00000-000');
             $('#CadastroPessoaFisica').mask('000.000.000-00');
-            $('#bornDate').mask('0000-00-00');
+            $('#bornDate').mask('0000-00-00');        
         });
     </script>
-    <script src="script/script.js" defer></script>
-    <script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
 </body>
+<script src="script/script.js" ></script>
+<script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
 </html>
