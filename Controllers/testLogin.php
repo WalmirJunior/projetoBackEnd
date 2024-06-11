@@ -31,7 +31,7 @@ if (!empty($_POST['usuario']) && !empty($_POST['senha'])) {
             echo "Senha incorreta!";
             echo "<script>
                     setTimeout(function() {
-                        window.location.href = '../login.html';
+                        window.location.href = '../login.php';
                     }, 2000);
                   </script>";
         }
@@ -39,7 +39,7 @@ if (!empty($_POST['usuario']) && !empty($_POST['senha'])) {
         echo "Usuário não encontrado!";
         echo "<script>
                 setTimeout(function() {
-                    window.location.href = '../login.html';
+                    window.location.href = '../login.php';
                 }, 2000);
               </script>";
     }
@@ -48,7 +48,7 @@ if (!empty($_POST['usuario']) && !empty($_POST['senha'])) {
     echo "Preencha todos os campos!";
     echo "<script>
             setTimeout(function() {
-                window.location.href = '../login.html';
+                window.location.href = '../login.php';
             }, 2000);
           </script>";
 }

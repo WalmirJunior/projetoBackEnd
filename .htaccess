@@ -1,0 +1,6 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+ErrorDocument 404 /projetoBackEnd/error/404.php
+ErrorDocument 403 /projetoBackEnd/error/403.php
+ErrorDocument 401 /projetoBackEnd/error/401.php

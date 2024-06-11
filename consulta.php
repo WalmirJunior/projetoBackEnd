@@ -6,7 +6,9 @@ include 'config.php';
 session_start();
 $tipo_perfil = isset($_SESSION['tipo_perfil']) ? $_SESSION['tipo_perfil'] : 'comum';
 if (!isset($_SESSION['tipo_perfil']) || $_SESSION['tipo_perfil'] !== 'master') {
-    header("Location: login.php"); // Redireciona para a página de login se não for master
+    header('HTTP/1.1 403 Forbidden');
+    include('error/403.php');
+    // header("Location: login.php"); // Redireciona para a página de login se não for master
     exit();
 }
 

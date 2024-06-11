@@ -3,7 +3,7 @@ session_start();
 $tipo_perfil = isset($_SESSION['tipo_perfil']) ? $_SESSION['tipo_perfil'] : 'comum';
 
 if (!isset($_SESSION['usuario'])) {
-    header("Location: login.html");
+    header("Location: error/401.php");
     exit();
 }
 ?>
@@ -45,13 +45,13 @@ if (!isset($_SESSION['usuario'])) {
                             </button>
                             <ul class="dropdown-menu">
                                 <li><button class="dropdown-item"
-                                        onclick="window.location.href='servicos/2FA.html'">2FA</button></li>
+                                        onclick="window.location.href='servicos/2FA.php'">2FA</button></li>
                                 <li><button class="dropdown-item"
-                                        onclick="window.location.href='servicos/smsprogramavel.html'">Sms Programável</button></li>
+                                        onclick="window.location.href='servicos/smsprogramavel.php'">Sms Programável</button></li>
                                 <li><button class="dropdown-item"
-                                        onclick="window.location.href='servicos/gvc.html'">Google Verified Calls</button></li>
+                                        onclick="window.location.href='servicos/gvc.php'">Google Verified Calls</button></li>
                                 <li><button class="dropdown-item"
-                                        onclick="window.location.href='servicos/numeromascara.html'">Número Máscara</button></li>
+                                        onclick="window.location.href='servicos/numeromascara.php'">Número Máscara</button></li>
                             </ul>
                         </li>
                         <li class="nav-item" style="font-weight: 600;">
@@ -121,7 +121,7 @@ if (!isset($_SESSION['usuario'])) {
                                     <h3 class="card-title py-2 changeable-text-container">2FA</h3>
                                     <p style="min-height: 100px!important" class="card-text changeable-text-container">Adicionar um número de
                                         telefone de recuperação a uma conta individual.</p>
-                                    <a href="servicos/2FA.html" class="btn btn-danger changeable-text-container">Saiba mais</a>
+                                    <a href="servicos/2FA.php" class="btn btn-danger changeable-text-container">Saiba mais</a>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +135,7 @@ if (!isset($_SESSION['usuario'])) {
                                     <p style="min-height: 100px!important" class="card-text changeable-text-container">Com essa ferramenta você
                                         envia mensagens de SMS com as informações que o seu cliente precisa e com a
                                         segurança, a velocidade e a confiabilidade que você espera.</p>
-                                    <a href="servicos/smsprogramavel.html" class="btn btn-danger changeable-text-container">Saiba mais</a>
+                                    <a href="servicos/smsprogramavel.php" class="btn btn-danger changeable-text-container">Saiba mais</a>
                                 </div>
                             </div>
                         </div>
@@ -150,7 +150,7 @@ if (!isset($_SESSION['usuario'])) {
                                     <p style="min-height: 100px!important" class="card-text changeable-text-container">Permite que empresas exibam
                                         para o cliente na hora da chamada sua marca,
                                         logotipo e até mesmo o motivo da chamada.</p>
-                                    <a href="servicos/gvc.html" class="btn btn-danger changeable-text-container">Saiba mais</a>
+                                    <a href="servicos/gvc.php" class="btn btn-danger changeable-text-container">Saiba mais</a>
                                 </div>
                             </div>
                         </div>
@@ -164,7 +164,7 @@ if (!isset($_SESSION['usuario'])) {
                                     <h3 class="card-title py-2 changeable-text-container">Número Máscara</h3>
                                     <p style="min-height: 100px!important" class="card-text changeable-text-container">Garante aos seus clientes a capacidade de fazer chamadas e enviar 
                                         mensagens sem expor seus números de telefone pessoais. </p>
-                                    <a href="servicos/numeromascara.html" class="btn btn-danger changeable-text-container">Saiba mais</a>
+                                    <a href="servicos/numeromascara.php" class="btn btn-danger changeable-text-container">Saiba mais</a>
                                 </div>
                             </div>
                         </div>
