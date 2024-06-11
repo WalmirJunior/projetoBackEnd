@@ -1,5 +1,5 @@
 <?php
-http_response_code(404);
+    http_response_code(404);
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -15,6 +15,6 @@ http_response_code(404);
 <body>
     <h1>404</h1>
     <p>Desculpe, a página que você está procurando não foi encontrada.</p>
-    <p><a href="../login.php">Voltar para a página inicial</a></p>
+    <p><a href="../projetoBackEnd/login.php">Voltar para a página inicial</a></p>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-http_response_code(403);
+    http_response_code(403);
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -15,6 +15,6 @@ http_response_code(403);
 <body>
     <h1>403</h1>
     <p>Desculpe, você não tem permissão para acessar esta página.</p>
-    <p><a href="../login.php">Voltar para a página inicial</a></p>
+    <p><a href="../projetoBackEnd/login.php">Voltar para a página inicial</a></p>
 </body>
 </html>

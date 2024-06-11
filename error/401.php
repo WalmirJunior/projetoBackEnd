@@ -1,5 +1,5 @@
 <?php
-http_response_code(401);
+    http_response_code(401);
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -15,6 +15,6 @@ http_response_code(401);
 <body>
     <h1>401</h1>
     <p>Por favor, efetue login para ter acesso</p>
-    <p><a href="../login.php">Voltar para a página inicial</a></p>
+    <p><a href="../projetoBackEnd/login.php">Voltar para a página inicial</a></p>
 </body>
 </html>
