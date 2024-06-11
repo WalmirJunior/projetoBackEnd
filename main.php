@@ -55,17 +55,17 @@ if (!isset($_SESSION['usuario'])) {
                             </ul>
                         </li>
                         <li class="nav-item" style="font-weight: 600;">
-                            <button class="nav-link" onclick="window.location.href='sobre.html'"
+                            <button class="nav-link" onclick="window.location.href='sobre.php'"
                                 style="color: white;">Sobre Nós</button>
                         </li>
                         <?php if ($tipo_perfil == 'master'): ?>
                         <li class="nav-item" style="font-weight: 600;">
-                            <button class="nav-link" onclick="window.location.href='consulta.html'"
+                            <button class="nav-link" onclick="window.location.href='consulta.php'"
                                 style="color: white;">Consulta usuários</button>
                         </li>
                         <?php endif; ?>
                         <li class="nav-item" style="font-weight: 600;">
-                            <button class="nav-link" onclick="window.location.href='modeloBD.html'"
+                            <button class="nav-link" onclick="window.location.href='modeloBD.php'"
                                 style="color: white;">Modelo BD</button>
                         </li>
                         <li class="nav-item" style="font-weight: 600;">
