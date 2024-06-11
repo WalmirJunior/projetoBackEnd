@@ -11,11 +11,11 @@ Em desenvolvimento 🟡
 ```
 3. Navegue até o diretório do projeto:
 ```bash
-   cd TelecallBackEnd 
+   cd projetoBackEnd
 ```
 4. Importe o esquema do banco de dados:
 ```bash
-   mysql -u root -p formulario-telecall < BDATUALIZADOMASTER.sql
+   mysql -u root -p formulario-telecall < BD.sql
 ```
 
 
