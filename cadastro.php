@@ -166,6 +166,9 @@ if (isset($_POST['submit'])) {
                               <label class="form-label" id="labelCep" for="cep">CEP</label>
                             </div>
 
+                            <button type="button" id="verificarCep" class="btn btn-primary">Verificar CEP</button>
+                            <div id="resultadoCep"></div>
+
                           </div>
                           <div class="col-md-7 mb-4 pb-2">
 
@@ -258,6 +261,43 @@ if (isset($_POST['submit'])) {
 
   togglePasswordVisibility('senha', 'toggleSenha');
   togglePasswordVisibility('confirmaSenha', 'toggleConfirmaSenha');
+
+   $('#verificarCep').click(function() {
+            var cep = $('#cep').val().replace("-", "");
+            console.log("CEP digitado: " + cep);
+            
+            if (cep.length === 8) {
+                $.ajax({
+                    url: 'Controllers/consulta_cep.php', 
+                    type: 'POST',
+                    data: { cep: cep },
+                    success: function(response) {
+                        console.log("Resposta da API: " + response);
+                        
+                        try {
+                            var data = JSON.parse(response);
+                            
+                            if (data.erro) {
+                                $('#resultadoCep').html('<div class="alert alert-danger">' + data.erro + '</div>');
+                            } else {
+                                var endereco = data.bairro + ', ' + data.localidade + ', ' + data.uf;
+                                $('#endereco').val(endereco);
+                                $('#resultadoCep').html('<div class="alert alert-success">Endereço encontrado e preenchido!</div>');
+                            }
+                        } catch (e) {
+                            $('#resultadoCep').html('<div class="alert alert-danger">Erro ao processar a resposta: ' + e.message + '</div>');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("Erro AJAX: " + error);
+                        $('#resultadoCep').html('<div class="alert alert-danger">Erro ao consultar o CEP: ' + error + '</div>');
+                    }
+                });
+            } else {
+                $('#resultadoCep').html('<div class="alert alert-warning">Por favor, insira um CEP válido</div>');
+            }
+      });
+
     </script>
     <script src="script/script.js" ></script>
     
