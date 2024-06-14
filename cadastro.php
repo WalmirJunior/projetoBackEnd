@@ -184,22 +184,21 @@ if (isset($_POST['submit'])) {
                           </div>
                         </div>
 
+                        
                         <div class="row">
                           <div class="col-md-6 mb-4 pb-2">
-
-                            <div data-mdb-input-init class="form-outline form-white">
+                            <div data-mdb-input-init class="form-outline form-white password-toggle">
                               <input type="password" id="senha" name="senha" class="form-control form-control-lg" required />
                               <label class="form-label" id="labelSenha" for="senha">Senha</label>
+                              <i class="toggle-icon fas fa-eye text-dark" id="toggleSenha"></i>
                             </div>
-
                           </div>
                           <div class="col-md-6 mb-4 pb-2">
-
-                            <div data-mdb-input-init class="form-outline form-white">
-                              <input type="password" id="confirmaSenha" name="confirmaSenha" class="form-control form-control-lg" required />
+                            <div data-mdb-input-init class="form-outline form-white password-toggle">
+                              <input type="password" id="confirmaSenha" name="confirmaSenha" class="form-control form-control-lg" required></input>
+                              <i class="toggle-icon fas fa-eye text-dark" id="toggleConfirmaSenha"></i>
                               <label class="form-label" id="labelConfirma" for="confirmaSenha">Confirmar Senha</label>
                             </div>
-
                           </div>
                         </div>
 
@@ -245,8 +244,23 @@ if (isset($_POST['submit'])) {
             $('#CadastroPessoaFisica').mask('000.000.000-00');
             $('#bornDate').mask('0000-00-00');
         });
+        function togglePasswordVisibility(inputId, toggleId) {
+          const passwordInput = document.getElementById(inputId);
+          const toggleIcon = document.getElementById(toggleId);
+
+          toggleIcon.addEventListener('click', function () {
+              const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+              passwordInput.setAttribute('type', type);
+              toggleIcon.classList.toggle('fa-eye');
+              toggleIcon.classList.toggle('fa-eye-slash');
+          });
+        }
+
+  togglePasswordVisibility('senha', 'toggleSenha');
+  togglePasswordVisibility('confirmaSenha', 'toggleConfirmaSenha');
     </script>
     <script src="script/script.js" ></script>
-    <script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
+    
+    <script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous" defer></script>
 </body>
 </html>
