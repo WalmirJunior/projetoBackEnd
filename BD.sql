@@ -18,7 +18,7 @@
 --
 -- Table structure for table `usuarios`
 --
-USE formulario-telecall;
+
 DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -38,7 +38,7 @@ CREATE TABLE `usuarios` (
   `tipo_perfil` enum('comum','master') NOT NULL DEFAULT 'comum',
   `cep` varchar(9) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'ADMIN ADMIN ADMIN','2001-01-01','ADMIN ADMIN ADMIN','(+55)1234123412','(+55)1234123412','rua teste','asdsadsad@gmail.com','11111111111','WEBMKM','$2y$10$6nV4CQub3i1WNazh9yJNLedcx1INbz04NJ4.mUTdCiU9LvREFbr.O','P','master','12312-321'),(14,'teste cep no db','2000-10-18','teste cep no db mae','(+55)1234123412','(+55)1234123412','rua teste','asdas@gmail.com','123.123.123','tstcep','$2y$10$M.OqTXJ5WmpTHTZl/qQzpura2E33oSCe608WZ9iUxBUBTTm2wlV7K','P','comum','12312-321'),(16,'asdasdasdasdasdsa','2000-01-01','asdasdasdasdasdsa','(+55)1234123412','(+55)1234123412','rua teste','dasdas@gmail.com','111.111.111','testdn','$2y$10$HaNYNGvej/O6BsAkkzLvDecmCQ1SdUkLJ9MdNqgFTQX7VUv7Re.RW','M','comum','25030-060');
+INSERT INTO `usuarios` VALUES (1,'ADMIN ADMIN ADMIN','2001-01-01','ADMIN ADMIN ADMIN','(+55)1234123412','(+55)1234123412','rua teste','asdsadsad@gmail.com','11111111111','WEBMKM','$2y$10$6nV4CQub3i1WNazh9yJNLedcx1INbz04NJ4.mUTdCiU9LvREFbr.O','P','master','12312-321'),(16,'asdasdasdasdasdsa','2000-01-01','asdasdasdasdasdsa','(+55)1234123412','(+55)1234123412','rua teste','dasdas@gmail.com','111.111.111','testdn','$2y$10$HaNYNGvej/O6BsAkkzLvDecmCQ1SdUkLJ9MdNqgFTQX7VUv7Re.RW','M','comum','25030-060'),(22,'teste data nasc com mask','2000-11-18','asdasdasdasdasdasda','(+55)1234123412','(+55)1234123412','rua teste','mascaradata@gmail.com','131.312.312','mascdt','$2y$10$Iw5bRhXgoISLCV8YjgkXuOPbzGDxqPf/iREwRDu1h1D7QwTyye5Z.','P','master','12312-321'),(24,'pericles melhor eu ir','2000-11-18','pericles final de tarde','(+55)1234123412','(+55)1234123412','rua da sofrencia','periclao@gmail.com','123.123.123','pericl','$2y$10$qzFQf1jIJd8j08aP0iJRY.9jAiPZVjhjFTKuSZYF2gWqUVeWB/.b6','P','comum','25550-555'),(25,'chamber of reflection','2024-06-14','a musica mais triste do ano luiz lins','(+55)1234123412','(+55)1234123412','Centro, Xique-Xique, BA','tristaomttriste@gmail.com','191.191.406','triste','$2y$10$ZUWvHpL1NHTzbCs6yF5DMe2A1leQK5bvaC7RsaiUYoL2XNrGGEO7.','P','comum','47403-086'),(26,'soweto farol das estrelas','2001-01-01','é tarde demais raça negra','(+55)1234123412','(+55)1234123412','Vila Leopoldina, Duque de Caxias, RJ','walmirjun77@gmail.com','123.123.123','soweto','$2y$10$Ibkny.eiulw1wsYOgXviX.yvFrBAgo5smwHXs7e70Ff4cxymmBL0i','M','comum','25030-060');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-05  0:46:23
+-- Dump completed on 2024-06-15 19:45:43
