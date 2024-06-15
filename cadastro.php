@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
         echo "Usuário registrado com sucesso!";
         echo "<script>
                 setTimeout(function() {
-                    window.location.href = 'login.html';
+                    window.location.href = 'login.php';
                 }, 2000);
               </script>";
     } else {

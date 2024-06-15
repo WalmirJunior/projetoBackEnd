@@ -43,6 +43,9 @@ $usuarios = $result->fetch_all(MYSQLI_ASSOC);
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script/modoNoturno.js" defer></script>
+    <script src="script/acessibilidade.js" defer></script>
+    <link rel="stylesheet" href="css/styleb.css">
     <meta charset="UTF-8">
     <title>Consulta de Usuários</title>
     <style>
@@ -153,24 +156,26 @@ $usuarios = $result->fetch_all(MYSQLI_ASSOC);
         <button type="submit">Pesquisar</button>
         <a href="Controllers/gerar_pdf.php" target="_blank"><button type="button">Baixar PDF</button></a>
     </form>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Ação</th>
-        </tr>
-        <?php foreach ($usuarios as $usuario): ?>
-        <tr>
-            <td><?php echo htmlspecialchars($usuario['id']); ?></td>
-            <td><?php echo htmlspecialchars($usuario['nome']); ?></td>
-            <td><?php echo htmlspecialchars($usuario['email']); ?></td>
-            <td>
-                <button onclick="showModal(<?php echo htmlspecialchars($usuario['id']); ?>)">Excluir</button>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
+    <div class="container">
+        <table class="mt-5">
+            <tr ">
+                <th style="background-color: #0D0D0D!important; color:white;">ID</th>
+                <th style="background-color: #0D0D0D!important; color:white;">Nome</th>
+                <th style="background-color: #0D0D0D!important; color:white;">Email</th>
+                <th style="background-color: #0D0D0D!important; color:white;">Ação</th>
+            </tr>
+            <?php foreach ($usuarios as $usuario): ?>
+            <tr>
+                <td><?php echo htmlspecialchars($usuario['id']); ?></td>
+                <td><?php echo htmlspecialchars($usuario['nome']); ?></td>
+                <td><?php echo htmlspecialchars($usuario['email']); ?></td>
+                <td>
+                    <button onclick="showModal(<?php echo htmlspecialchars($usuario['id']); ?>)">Excluir</button>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
 
     <!-- Janela Modal -->
     <div id="modal" class="modal">
@@ -204,6 +209,25 @@ $usuarios = $result->fetch_all(MYSQLI_ASSOC);
             }
         }
     </script>
+    <input type="checkbox" class="checkbox"  id="chk">
+    <label for="chk" class="label">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+        <div class="ball"></div>
+    </label>
+    <div class="accessibility-panel">
+        <button id="increase-font">Aumentar Fonte</button>
+        <button id="decrease-font">Diminuir Fonte</button>
+    </div>
+        
+
+
+
+    <div class="card-footer fixed-bottom">
+        <footer class="d-flex justify-content-center align-items-center p-3 " style="background:linear-gradient(to left, #EB0008, #B81E23); color:white;">
+            <h5>CPaaS &#169;</h5>
+        </footer>
+    </div>
 </body>
 </html>
 

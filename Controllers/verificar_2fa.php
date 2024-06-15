@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     setTimeout(function() {
                         window.location.href = '../main.php';
                     }, 2000);
-                  </script>";
+                </script>";
     } else {
         echo "Resposta incorreta. Tente novamente.";
     }
