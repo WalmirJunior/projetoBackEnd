@@ -103,7 +103,7 @@ if (isset($_POST['submit'])) {
                           <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
 
                             <div data-mdb-input-init class="form-outline mb-4">
-                              <input type="text" id="telFixo" name="telFixo" class="form-control form-control-lg" required />
+                              <input type="text" id="telFixo" name="telFixo" class="form-control form-control-lg" placeholder="(+55)xxxxxxxxxx" required />
                               <label class="form-label" id="labelFixo" for="telFixo">Telefone Fixo</label>
                             </div>
 
@@ -111,7 +111,7 @@ if (isset($_POST['submit'])) {
                           <div class="col-md-6">
 
                           <div data-mdb-input-init class="form-outline mb-4">
-                              <input type="text" id="cel" name="cel" class="form-control form-control-lg" required />
+                              <input type="text" id="cel" name="cel" class="form-control form-control-lg" placeholder="(+55)xxxxxxxxxx" required />
                               <label class="form-label" id="labelCelular" for="cel">Celular</label>
                             </div>
 
