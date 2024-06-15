@@ -1,0 +1,6 @@
+To: usuario@example.com
+Subject: Redefinição de Senha
+
+Clique no link a seguir para redefinir sua senha: http://localhost/reset_senha.php?token=seu_token_aqui
+
+acima um exemplo.

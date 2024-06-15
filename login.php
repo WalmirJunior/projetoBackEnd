@@ -22,11 +22,12 @@
                     <input type="text" class="form-control" id="usuario" name="usuario" required>
                 </div>
 
-                <div class="mb-4">
+                <div class="mb-2">
                     <label id="senhaLabel" class="form-label" for="senha">Senha</label>
                     <input type="password" class="form-control" id="senha" name="senha" required>                    
                 </div>
-                <div class="d-grid gap-2 mb-3">
+                <span><a href="Controllers/esqueceu_senha.php">Esqueceu sua senha?</a></span>
+                <div class="d-grid gap-2 my-3">
                     <!-- <button class="btn btn-danger changeable-text-container" type="button" onclick="entrar()">Entrar</button> -->
                     <input type="submit" value="Entrar" id="submit">
                 </div>

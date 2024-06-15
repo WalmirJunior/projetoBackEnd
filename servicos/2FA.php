@@ -3,7 +3,7 @@ session_start();
 $tipo_perfil = isset($_SESSION['tipo_perfil']) ? $_SESSION['tipo_perfil'] : 'comum';
 
 if (!isset($_SESSION['usuario'])) {
-    header("Location: login.html");
+    header("Location: login.php");
     exit();
 }
 ?>

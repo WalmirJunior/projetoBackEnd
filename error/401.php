@@ -15,6 +15,6 @@
 <body>
     <h1>401</h1>
     <p>Por favor, efetue login para ter acesso</p>
-    <p><a href="../login.php">Voltar para a página inicial</a></p>
+    <p><a href="login.php">Voltar para a página inicial</a></p>
 </body>
 </html>

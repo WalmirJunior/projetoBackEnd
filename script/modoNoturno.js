@@ -12,6 +12,7 @@ chk.addEventListener('change', (event) => {
     event.preventDefault();
     event.stopPropagation(); // Tenta impedir a propagação do evento
     document.body.classList.toggle('dark', chk.checked);
+    
     setModoNoturno(chk.checked);
 });
 
@@ -19,5 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (getModoNoturno()) {
         chk.checked = true;
         document.body.classList.add('dark');
+        
     }
 });

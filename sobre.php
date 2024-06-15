@@ -3,7 +3,7 @@ session_start();
 $tipo_perfil = isset($_SESSION['tipo_perfil']) ? $_SESSION['tipo_perfil'] : 'comum';
 
 if (!isset($_SESSION['usuario'])) {
-    header("Location: login.html");
+    header("Location: login.php");
     exit();
 }
 ?>
@@ -45,13 +45,13 @@ if (!isset($_SESSION['usuario'])) {
                             </button>
                             <ul class="dropdown-menu">
                                 <li><button class="dropdown-item"
-                                        onclick="window.location.href='servicos/2FA.html'">2FA</button></li>
+                                        onclick="window.location.href='servicos/2FA.php'">2FA</button></li>
                                 <li><button class="dropdown-item"
-                                        onclick="window.location.href='servicos/smsprogramavel.html'">Sms Programável</button></li>
+                                        onclick="window.location.href='servicos/smsprogramavel.php'">Sms Programável</button></li>
                                 <li><button class="dropdown-item"
-                                        onclick="window.location.href='servicos/gvc.html'">Google Verified Calls</button></li>
+                                        onclick="window.location.href='servicos/gvc.php'">Google Verified Calls</button></li>
                                 <li><button class="dropdown-item"
-                                        onclick="window.location.href='servicos/numeromascara.html'">Número Máscara</button></li>
+                                        onclick="window.location.href='servicos/numeromascara.php'">Número Máscara</button></li>
                             </ul>
                         </li>
                         <li class="nav-item" style="font-weight: 600;">
