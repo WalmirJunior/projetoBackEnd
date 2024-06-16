@@ -3,4 +3,8 @@ Subject: Redefinição de Senha
 
 Clique no link a seguir para redefinir sua senha: http://localhost/reset_senha.php?token=seu_token_aqui
 
-acima um exemplo.
+acima um exemplo.To: matheusbrayd@gmail.com
+Subject: Redefinição de Senha
+
+Clique no link a seguir para redefinir sua senha: http://localhost/projetoBackEnd/Controllers/reset_senha.php?token=a7a8caed753c8ced28a29e6b8148ac32dc724bc419007daeb23d0dca72a24ccf719d665d3572055a8a943615624cfc9482ff
+
